@@ -76,7 +76,7 @@ class BaseUser(BaseModel, AbstractBaseUser, PermissionsMixin):
 
     USERNAME_FIELD = "store_name"
 
-    REQUIRED_FIELDS = ['full_name', "phone_number", 'store_instagram_id', 'store_type', 'email', 'address', 'postal_code']
+    REQUIRED_FIELDS = ['full_name', 'store_instagram_id', "phone_number",  'store_type', 'email', 'address', 'postal_code']
 
     def __str__(self):
         return f"{self.store_name} , {self.full_name}"
@@ -94,7 +94,7 @@ class BaseUserSerializer(ModelSerializer):
 
     class Meta:
         model = BaseUser
-        fields = ['id', 'full_name', "phone_number", 'store_instagram_id', 'store_type', 'email', 'address', 'postal_code']
+        fields = ['id', 'full_name', 'store_instagram_id', 'store_name', 'store_type', 'email', 'address', 'postal_code', "phone_number"]
 
 
 
