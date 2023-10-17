@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from rest_framework import viewsets, generics
+from rest_framework.views import APIView
 from .models import *
 from .viewset_base import ViewSetBase
 
@@ -52,6 +53,23 @@ class ProductOrderListView(generics.ListAPIView):
 class ProductOrderCreateView(generics.CreateAPIView):
     queryset = ProductOrderModel.objects.all()
     serializer_class = ProductOrderSerializer
+
+# class ProductOrderCreateView(APIView):
+#     def post(self, request):
+#         data = request.data
+
+#         user = request.user 
+#         product = 
+#         quantity
+        # data = request.data
+        # serializer = ProductOrderSerializer(data=request.data)
+        # if serializer.is_valid():
+        #     serializer.save()
+        #     return Response(serializer.data, status.HTTP_201_CREATED)
+        # else:
+        #     return Response(None, status.HTTP_400_BAD_REQUEST)
+
+
 
 
 class ProductOrderUpdateView(generics.UpdateAPIView):

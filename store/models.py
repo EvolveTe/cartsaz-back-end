@@ -58,8 +58,8 @@ class ProductSerializer(ModelSerializer):
 class ProductOrderSerializer(ModelSerializer):
     class Meta:
         model = ProductOrderModel
-        exclude = ('user')
-
+        # exclude = ('user',)
+        fields = '__all__'
 
 class OrderSerializer(ModelSerializer):
     products = ProductOrderSerializer(many=True, read_only=True)
